@@ -1,4 +1,17 @@
+<div class="container">
 <div class="row">
+
+	<% if @booknew.errors.any? %>
+	<ul class="error_massage">
+		<h3><%= @booknew.errors.count %>error occurrence</h3><!--エラーメッセ-->
+		
+			<% @booknew.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	</ul>
+<% end %>
+
 	<div class="col-xs-3">
 
 
@@ -43,4 +56,5 @@
 
 
 	</div>
+</div>
 </div>

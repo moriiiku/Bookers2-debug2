@@ -46,7 +46,7 @@ class BooksController < ApplicationController
   def update
   	@book = Book.find(params[:id])
   	if @book.update(book_params)
-  		redirect_to book_path(@book), notice: "You have creatad book successfully."
+  		redirect_to book_path(@book), notice: "You have updated book successfully."
   	else #if文でエラー発生時と正常時のリンク先を枝分かれにしている。
   		render "edit"
   	end
@@ -66,7 +66,7 @@ class BooksController < ApplicationController
 
   def correct_user
     unless Book.find(params[:id]).user == current_user
-      redirect_to user_path(current_user.id)
+      redirect_to books_path
     end
   end
 end
